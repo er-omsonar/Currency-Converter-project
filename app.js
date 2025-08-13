@@ -1,9 +1,11 @@
 const BASE_URL = "https://api.frankfurter.app/latest";
 const GOLD_URL = "https://api.gold-api.com/price/XAU";
+const SILVER_URL = "https://api.gold-api.com/price/XAG";
 const dropdowns = document.querySelectorAll(".dropdown select");
 const btn = document.querySelector("form button");
 const msg = document.querySelector(".msg");
 const goldBtn = document.querySelector("#g-button");
+
 
 // for(code in countryList){
 //   console.log(code,countryList[code]);
@@ -57,13 +59,18 @@ btn.addEventListener("click",async (evt)=>{
 async function getGoldRate(){
   const res  = await fetch(GOLD_URL);
   const data = await res.json();
-  console.log(data.price);
   let Gp = document.querySelector("#gold-price");
-  Gp.innerText = data.price;
+  Gp.innerText = "Gold - " + data.price;
+
+  const res1  = await fetch(SILVER_URL);
+  const data1 = await res1.json();
+  let Sp = document.querySelector("#silver-price");
+  Sp.innerText = "Silver - " + data1.price;
 }
 
-goldBtn.addEventListener("click",() => {
+goldBtn.addEventListener("click", () => {
   getGoldRate();
-   setInterval(getGoldRate,5000);
-
+  if (!window.goldInterval) {
+    window.goldInterval = setInterval(getGoldRate, 5000);
+  }
 });
