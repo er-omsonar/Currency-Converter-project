@@ -76,3 +76,36 @@ form button{
   font-size: 1.15rem;
   cursor: pointer;
 }
+
+.gold-box {
+  position: fixed;       /* stays in the same place */
+  right: 20px;           /* distance from right */
+  top: 100px;            /* distance from top */
+  background: #fef6d8;
+  border: 1px solid #e0c15a;
+  padding: 20px 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  width: 180px;
+  font-family: Arial, sans-serif;
+}
+
+.gold-box h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #b8860b;
+}
+
+.gold-box p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+#g-button{
+    height: 2rem;
+  background-color: #af4d9a;
+  color: #fff;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin-top: 10px;
+}
